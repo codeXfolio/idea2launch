@@ -12,7 +12,7 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  address   String
+  address   String   @unique
   limit     Int      @default(5)
   createdAt DateTime @default(now())
 }

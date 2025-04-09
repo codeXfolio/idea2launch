@@ -88,7 +88,8 @@ How It Works:
 
 3. Tokenomics Framework:  
    - Infer the total token supply, distribution channels, token utility, and vesting schedule based on the project idea.  
-   - Provide recommendations for improving the tokenomics design.  
+   - Provide recommendations for improving the tokenomics design.
+   - The percentage total supply should add up to 100%.  
 
 4. Use Cases:  
    - Generate 5 potential use cases for the project based on the inferred project type, target market, and key features.  

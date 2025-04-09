@@ -79,6 +79,7 @@ export default function TabResults({ results }: TabResultsProps) {
                <UseCaseTab
                   useCases={results.useCases}
                   protip={results.proTip}
+                  audiences={results.audiences}
                />
             )}
             {activeTab === "tokenomics" && (

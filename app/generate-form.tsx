@@ -55,8 +55,6 @@ function GenerateForm() {
       setLoading(false);
    }
 
-   function downloadBlueprint() {}
-
    return (
       <div className="mx-auto mb-8 max-w-2xl rounded-xl bg-cyberteal-surface p-6 shadow-cyber">
          {error && (

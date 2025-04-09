@@ -37,6 +37,24 @@ export async function POST(request: Request) {
          );
       }
 
+      if (user.limit <= 0) {
+         return NextResponse.json(
+            {
+               error: "User limit exceede, please try again tomorrow",
+            },
+            { status: 403 }
+         );
+      }
+      // Decrease the user's limit
+      await prisma.user.update({
+         where: {
+            address: address,
+         },
+         data: {
+            limit: user.limit - 1,
+         },
+      });
+
       // Check if the user has already generated a result
       const promptHash = crypto
          .createHash("md5")

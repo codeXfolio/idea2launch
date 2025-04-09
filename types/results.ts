@@ -48,4 +48,6 @@ export interface ProjectResults {
       tips: { title: string; description: string }[];
       pitchDecks: { title: string; url: string }[];
    };
+   audiences: string[];
+   projectName: string;
 }
