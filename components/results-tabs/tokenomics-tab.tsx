@@ -6,6 +6,13 @@ interface TokenomicsTabProps {
 }
 
 export default function TokenomicsTab({ tokenomics }: TokenomicsTabProps) {
+   const randomColors = [
+      "bg-teal-500",
+      "bg-purple-500",
+      "bg-teal-400",
+      "bg-purple-400",
+      "bg-gray-400",
+   ];
    return (
       <div className="space-y-6 text-cyberteal-text">
          <div className="flex items-center space-x-3">
@@ -74,10 +81,12 @@ export default function TokenomicsTab({ tokenomics }: TokenomicsTabProps) {
                   {tokenomics.distribution.map((item, index) => (
                      <div key={index} className="flex items-center space-x-2">
                         <div
-                           className={`h-3 w-3 rounded-full ${item.color}`}
+                           className={`h-3 w-3 rounded-full ${
+                              randomColors[index % randomColors.length]
+                           }`}
                         ></div>
                         <span className="text-cyberteal-muted">
-                           {item.label} ({item.percentage}%)
+                           {item.channel} ({item.percentage})
                         </span>
                      </div>
                   ))}
@@ -97,9 +106,7 @@ export default function TokenomicsTab({ tokenomics }: TokenomicsTabProps) {
                      {tokenomics.utility.map((item, index) => (
                         <li key={index} className="flex items-start space-x-2">
                            <div className="mt-1 h-1.5 w-1.5 rounded-full bg-cyberteal-secondary"></div>
-                           <span className="text-cyberteal-muted">
-                              {item.text}
-                           </span>
+                           <span className="text-cyberteal-muted">{item}</span>
                         </li>
                      ))}
                   </ul>
@@ -114,11 +121,11 @@ export default function TokenomicsTab({ tokenomics }: TokenomicsTabProps) {
                   </div>
 
                   <div className="space-y-2">
-                     {tokenomics.vesting.map((item, index) => (
+                     {tokenomics.distribution.map((item, index) => (
                         <div key={index} className="flex items-start space-x-2">
                            <div className="mt-1 h-1.5 w-1.5 rounded-full bg-cyberteal-primary"></div>
                            <span className="text-cyberteal-muted">
-                              {item.text}
+                              {item.channel}: {item.vestingSchedule}
                            </span>
                         </div>
                      ))}
@@ -132,9 +139,7 @@ export default function TokenomicsTab({ tokenomics }: TokenomicsTabProps) {
                Tokenomics Recommendation
             </h3>
             <p className="text-sm text-cyberteal-muted">
-               Your token distribution balances team incentives with community
-               ownership. Consider implementing a token burn mechanism to create
-               deflationary pressure and increase scarcity over time.
+               {tokenomics.recommendations}
             </p>
          </div>
       </div>

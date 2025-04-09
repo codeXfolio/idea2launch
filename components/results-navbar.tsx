@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
-import ConnectedWallet from "./connected-wallet";
+import ConnectWalletButton from "./connect-wallet-button";
 
 export default function ResultsNavbar() {
    return (
@@ -30,7 +30,7 @@ export default function ResultsNavbar() {
             </div>
 
             <div className="flex items-center space-x-4">
-               <ConnectedWallet />
+               <ConnectWalletButton />
             </div>
          </div>
       </nav>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { FileDown, FileText } from "lucide-react";
+import { BotIcon, FileDown, FileText } from "lucide-react";
 
 export default function ExportSection() {
    const handleExportMarkdown = () => {
@@ -26,8 +26,8 @@ export default function ExportSection() {
                   onClick={handleExportMarkdown}
                   className="flex-1 border-cyberteal-primary/30 bg-cyberteal-surface text-cyberteal-text hover:border-cyberteal-primary hover:bg-cyberteal-surface/80 sm:flex-initial hover:text-white"
                >
-                  <FileText className="mr-2 h-4 w-4" />
-                  Export as Markdown
+                  <BotIcon className="mr-2 h-4 w-4" />
+                  Chat to AI
                </Button>
                <Button
                   onClick={handleDownloadPDF}
@@ -35,7 +35,7 @@ export default function ExportSection() {
                >
                   <span className="cyber-button-content flex items-center text-black">
                      <FileDown className="mr-2 h-4 w-4" />
-                     Download Pitch Deck (PDF)
+                     Download Blueprint (PDF)
                   </span>
                </Button>
             </div>

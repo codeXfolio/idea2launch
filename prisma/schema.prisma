@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  address   String
+  limit     Int      @default(5)
+  createdAt DateTime @default(now())
+}
+
+model Result {
+  id         String      @id @default(uuid())
+  promptHash String      @unique @default("")
+  json       String
+  summary    String
+  assistants AssistBot[]
+  createdAt  DateTime    @default(now())
+}
+
+model AssistBot {
+  id         Int    @id @default(autoincrement())
+  telegramId String
+  resultId   String
+  result     Result @relation(fields: [resultId], references: [id])
+}

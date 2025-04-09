@@ -1,73 +1,51 @@
-// Define types for all the result data
-export interface UseCaseSuggestion {
-  text: string
+// Define types based on the APIResponse interface
+
+export interface UseCase {
+   title: string;
+   description: string;
 }
 
 export interface TokenDistribution {
-  label: string
-  percentage: number
-  color: string
-}
-
-export interface TokenUtility {
-  text: string
-}
-
-export interface VestingSchedule {
-  text: string
+   channel: string;
+   percentage: string;
+   vestingSchedule: string;
 }
 
 export interface Tokenomics {
-  totalSupply: string
-  distribution: TokenDistribution[]
-  utility: TokenUtility[]
-  vesting: VestingSchedule[]
+   totalSupply: string;
+   distribution: TokenDistribution[];
+   utility: string[];
+   recommendations: string;
 }
 
 export interface RoadmapItem {
-  quarter: string
-  title: string
-  color: string
-  milestones: string[]
+   quarter: string;
+   phase: string;
+   milestones: { description: string }[]; // derived from milestones: { description: string }[]
+}
+
+export interface Tool {
+   name: string;
+   description: string;
 }
 
 export interface ToolCategory {
-  name: string
-  tools: string[]
-}
-
-export interface ProposalStep {
-  title: string
-  description: string
-}
-
-export interface Launchpad {
-  name: string
-  applyUrl: string
-}
-
-export interface TipCategory {
-  title: string
-  description: string
-}
-
-export interface PitchDeckExample {
-  title: string
-  url: string
-}
-
-export interface LaunchpadGuide {
-  proposalSteps: ProposalStep[]
-  launchpads: Launchpad[]
-  tips: TipCategory[]
-  pitchDecks: PitchDeckExample[]
+   name: string;
+   tools: Tool[];
 }
 
 export interface ProjectResults {
-  useCases: UseCaseSuggestion[]
-  tokenomics: Tokenomics
-  roadmap: RoadmapItem[]
-  tools: ToolCategory[]
-  launchpadGuide: LaunchpadGuide
+   useCases: UseCase[];
+   tokenomics: Tokenomics;
+   roadmaps: RoadmapItem[];
+   tools: {
+      categories: ToolCategory[];
+   };
+   proTip: string;
+   launchpadGuide: {
+      proposalSteps: { title: string; description: string }[];
+      launchpads: { name: string; applyUrl: string }[];
+      tips: { title: string; description: string }[];
+      pitchDecks: { title: string; url: string }[];
+   };
 }
-

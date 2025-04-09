@@ -1,9 +1,28 @@
+"use client";
 import ResultsNavbar from "@/components/results-navbar";
 import TabResults from "@/components/results-tabs/tab-results";
 import ExportSection from "@/components/export-section";
 import { mockResults } from "@/data/mock-results";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { ProjectResults } from "@/types/results";
 
 export default function ResultsPage() {
+   const { id } = useParams();
+   const [data, setData] = useState<ProjectResults | null>(null);
+
+   useEffect(() => {
+      async function fetchData() {
+         const data = await fetch("/api/result?id=" + id);
+         const json = await data.json();
+
+         setData(json);
+         console.log(json);
+      }
+
+      fetchData();
+   }, []);
+
    // In a real app, you would fetch this data from an API
    const results = mockResults;
 
@@ -16,7 +35,7 @@ export default function ResultsPage() {
                   Your AI-Powered Launch Blueprint
                </h1>
 
-               <TabResults results={results} />
+               {data ? <TabResults results={data} /> : "Loading.."}
             </div>
          </main>
          <ExportSection />
