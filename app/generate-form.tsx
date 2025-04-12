@@ -32,6 +32,7 @@ function GenerateForm() {
       }
 
       setLoading(true);
+      setError("");
       try {
          const response = await fetch("/api/generate", {
             method: "POST",
