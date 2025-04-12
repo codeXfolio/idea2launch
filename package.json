@@ -6,7 +6,8 @@
       "dev": "next dev",
       "build": "next build",
       "start": "PORT=4000 next start",
-      "lint": "next lint"
+      "lint": "next lint",
+      "bot": "tsx bot.ts"
    },
    "dependencies": {
       "@hookform/resolvers": "^3.9.1",
@@ -64,6 +65,7 @@
       "sonner": "^1.7.1",
       "tailwind-merge": "^2.5.5",
       "tailwindcss-animate": "^1.0.7",
+      "telegraf": "^4.16.3",
       "vaul": "^0.9.6",
       "zod": "^3.24.1"
    },
@@ -75,6 +77,7 @@
       "postcss": "^8",
       "prisma": "^6.5.0",
       "tailwindcss": "^3.4.17",
+      "tsx": "^4.19.3",
       "typescript": "^5"
    }
 }

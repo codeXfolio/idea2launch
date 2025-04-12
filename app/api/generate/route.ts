@@ -83,6 +83,7 @@ export async function POST(request: Request) {
             json: generated,
             summary: parsed.summary,
             promptHash,
+            userId: user.id,
          },
          select: {
             id: true,

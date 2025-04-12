@@ -7,7 +7,13 @@ import { saveAs } from "file-saver";
 import { AIResponse } from "@/app/api/helper";
 import { ProjectResults } from "@/types/results";
 
-export default function ExportSection({ data }: { data: ProjectResults }) {
+export default function ExportSection({
+   data,
+   id,
+}: {
+   data: ProjectResults;
+   id: string;
+}) {
    const handleDownloadPDF = async () => {
       try {
          const margin = 50;
@@ -292,6 +298,12 @@ export default function ExportSection({ data }: { data: ProjectResults }) {
             </p>
             <div className="flex flex-col md:flex-row w-full gap-3 sm:w-auto">
                <Button
+                  onClick={() =>
+                     window.open(
+                        "https://t.me/Idea2Launch_bot?start=" + id,
+                        "_blank"
+                     )
+                  }
                   variant="outline"
                   className="flex-1 border-cyberteal-primary/30 bg-cyberteal-surface text-cyberteal-text hover:border-cyberteal-primary hover:bg-cyberteal-surface/80 sm:flex-initial hover:text-white"
                >

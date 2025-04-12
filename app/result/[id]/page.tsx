@@ -50,7 +50,7 @@ export default function ResultsPage() {
                )}
             </div>
          </main>
-         {data && <ExportSection data={data} />}
+         {data && <ExportSection data={data} id={id as string} />}
       </div>
    );
 }
