@@ -24,11 +24,30 @@ bot.start(async (ctx) => {
    });
 
    // Save the user's Telegram ID and result ID to the database
-   await prisma.assistBot.create({
+   const assist = await prisma.assistBot.create({
       data: {
          telegramId: ctx.from.id.toString(),
          resultId,
          userId: result?.userId,
+      },
+   });
+
+   await prisma.chat.create({
+      data: {
+         message: `
+Act as an expert Web3/blockchain mentor with strong technical and business experience. Your role is to analyze new project ideas and give clear, actionable feedback.
+
+Focus on:
+- Technical feasibility (smart contracts, tokenomics, dApps, etc.)
+- Business strategy (market fit, monetization, growth)
+- Risks, weaknesses, and areas to improve
+- Sharp, professional advice with real-world insight
+
+Here's the project description:
+${result?.summary}
+`,
+         role: "system",
+         assistBotId: assist.id,
       },
    });
 
