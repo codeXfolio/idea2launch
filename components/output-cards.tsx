@@ -51,6 +51,20 @@ export default function OutputCards() {
                </Card>
             ))}
          </div>
+         <div className="mt-10 flex justify-center">
+            <a
+               href="https://www.producthunt.com/posts/i2l?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-i2l"
+               target="_blank"
+            >
+               <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=952081&theme=neutral&t=1744435388571"
+                  alt="I2L - Idea2launch | Product Hunt"
+                  style={{ width: "250px", height: "54px" }}
+                  width="250"
+                  height="54"
+               />
+            </a>
+         </div>
       </section>
    );
 }
