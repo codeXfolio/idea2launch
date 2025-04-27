@@ -2,7 +2,13 @@
 
 import { createAppKit } from "@reown/appkit/react";
 import { EthersAdapter } from "@reown/appkit-adapter-ethers";
-import { sepolia, bsc, bscTestnet } from "@reown/appkit/networks";
+import {
+   sepolia,
+   bsc,
+   bscTestnet,
+   soneiumMinato,
+   soneium,
+} from "@reown/appkit/networks";
 
 // 1. Get projectId at https://cloud.reown.com
 const projectId = "601fd8de9a09208794d27e386024bfd4";
@@ -19,12 +25,15 @@ const metadata = {
 export const modalWc = createAppKit({
    adapters: [new EthersAdapter()],
    metadata,
-   networks: [sepolia, bsc, bscTestnet],
+   networks: [sepolia, soneiumMinato, soneium],
    projectId,
+   defaultAccountTypes: {
+      eip155: "eoa",
+   },
    features: {
       analytics: false,
-      email: false,
-      emailShowWallets: false,
+      // email: false,
+      // emailShowWallets: false,
       socials: [],
    },
 });
